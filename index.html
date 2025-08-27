@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portofolio — Nama Anda</title>
+  <meta name="description" content="Portofolio singkat: nama, hobi, dan cita-cita." />
+
+  <style>
+    :root{
+      --bg1: #0f172a; /* dark navy */
+      --bg2: #07103a; /* deeper */
+      --glass: rgba(255,255,255,0.06);
+      --accent: linear-gradient(135deg,#7c3aed,#06b6d4);
+      --card-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      --radius: 16px;
+      --glass-border: rgba(255,255,255,0.08);
+      color-scheme: dark;
+      color: #e6eef8;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(800px 400px at 10% 10%, rgba(124,58,237,0.08), transparent 8%),
+        radial-gradient(700px 350px at 90% 90%, rgba(6,182,212,0.06), transparent 10%),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
+      display:grid;
+      place-items:center;
+      padding:40px 20px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .container{
+      width:min(920px,96%);
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:start;
+    }
+
+    /* responsive */
+    @media (max-width:880px){
+      .container{grid-template-columns:1fr;}
+    }
+
+    header.card{
+      grid-column:1 / -1;
+      padding:28px;
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      backdrop-filter: blur(8px) saturate(120%);
+      box-shadow:var(--card-shadow);
+      border:1px solid var(--glass-border);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand{
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+
+    .logo{
+      width:64px;height:64px;border-radius:12px;
+      display:grid;place-items:center;font-weight:700;
+      background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.04);
+      font-size:20px;color:transparent;
+      -webkit-background-clip:text;background-clip:text;
+      background-image:var(--accent);
+    }
+
+    .heading h1{margin:0;font-size:20px;letter-spacing:0.2px}
+    .heading p{margin:2px 0 0;font-size:13px;opacity:0.8}
+
+    /* main card */
+    .profile{
+      padding:28px;border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--glass-border);
+      box-shadow:var(--card-shadow);
+    }
+
+    .profile h2{margin:0 0 8px;font-size:24px}
+    .profile .meta{margin:0 0 18px;color:#a9bfd9;font-size:14px}
+
+    dl{display:grid;gap:12px;margin:0}
+    dt{font-size:12px;color:#9fb0d6;text-transform:uppercase;letter-spacing:1px}
+    dd{margin:4px 0 12px;font-size:16px}
+
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+    .chip{
+      padding:8px 12px;border-radius:999px;font-weight:600;font-size:13px;
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(6px);
+    }
+
+    /* side card */
+    .stats{
+      padding:24px;border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.008));
+      border:1px solid var(--glass-border);
+      box-shadow:var(--card-shadow);
+      height:fit-content;
+    }
+
+    .accent-bar{height:6px;border-radius:999px;background:var(--accent);margin-bottom:14px}
+
+    .goal{
+      font-size:14px;margin-bottom:10px;color:#cfe8ff
+    }
+
+    footer{
+      grid-column:1 / -1;margin-top:18px;text-align:center;color:#92a7cc;font-size:13px;opacity:0.9
+    }
+
+    /* subtle animations */
+    .card, .profile, .stats, header.card{transition:transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .2s}
+    .card:hover, .profile:hover, .stats:hover, header.card:hover{transform:translateY(-6px)}
+
+    /* accessible focus state */
+    a:focus, button:focus{outline:3px solid rgba(124,58,237,0.18);outline-offset:2px}
+
+    /* small utility */
+    .muted{opacity:0.78;font-size:14px}
+  </style>
+</head>
+<body>
+  <main class="container" aria-labelledby="title">
+
+    <header class="card">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">FN</div>
+        <div class="heading">
+          <h1 id="title">Nama Anda</h1>
+          <p class="muted">Portofolio singkat — hanya nama, hobi, dan cita-cita</p>
+        </div>
+      </div>
+
+      <nav aria-label="Informasi singkat">
+        <p class="muted">Terakhir diperbarui: <time datetime="2025-08-27">27 Agustus 2025</time></p>
+      </nav>
+    </header>
+
+    <section class="profile card" aria-labelledby="profile-heading">
+      <h2 id="profile-heading">Perkenalkan</h2>
+      <p class="meta">Nama lengkap, profesi singkat atau tagline (opsional)</p>
+
+      <dl>
+        <div>
+          <dt>Nama</dt>
+          <dd id="nama">Fuad</dd>
+        </div>
+
+        <div>
+          <dt>Hobi</dt>
+          <dd id="hobi">
+            <div class="chips">
+              <span class="chip">Pengembangan Web</span>
+              <span class="chip">Membaca & Menulis</span>
+              <span class="chip">Fotografi Konsep</span>
+            </div>
+          </dd>
+        </div>
+
+        <div>
+          <dt>Cita-cita</dt>
+          <dd id="cita">Menjadi pengembang web berpengaruh yang membangun produk digital yang memecahkan masalah nyata dan menginspirasi tim.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="stats">
+      <div class="accent-bar" aria-hidden="true"></div>
+      <h3 class="goal">Tujuan Jangka Pendek</h3>
+      <p class="muted">Meningkatkan keterampilan React & arsitektur frontend, serta berkontribusi pada proyek open-source.</p>
+
+      <h3 style="margin-top:18px" class="goal">Tujuan Jangka Panjang</h3>
+      <p class="muted">Memimpin tim produk teknologi yang berdampak dan mendirikan startup yang berfokus pada solusi pendidikan.</p>
+
+      <div style="margin-top:18px" class="muted">Kontak: <strong>email@contoh.com</strong> (opsional)</div>
+    </aside>
+
+    <footer>
+      Dibuat dengan sederhana — untuk portofolio tanpa gambar. Kode bersih dan mudah disesuaikan.
+    </footer>
+
+  </main>
+
+  <script>
+    // Script kecil untuk mengganti isi dengan mudah (opsional)
+    // Silakan ubah nilai di bawah sesuai kebutuhan.
+    (function(){
+      const data = {
+        nama: 'Fuad',
+        hobi: ['Pengembangan Web','Membaca & Menulis','Fotografi Konsep'],
+        cita: 'Menjadi pengembang web berpengaruh yang membangun produk digital yang memecahkan masalah nyata dan menginspirasi tim.'
+      };
+
+      document.getElementById('nama').textContent = data.nama;
+      const chipsEl = document.getElementById('hobi').querySelector('.chips');
+      chipsEl.innerHTML = data.hobi.map(h => `<span class="chip">${h}</span>`).join('');
+      document.getElementById('cita').textContent = data.cita;
+    })();
+  </script>
+</body>
+</html>
